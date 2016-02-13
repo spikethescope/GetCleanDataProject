@@ -27,7 +27,7 @@ Then combine both data into a single dataset.
 
 Step 4:Prepare data to extract statistical info
 ---
-Load library **dplyr** 
+Load library **dplyr**.
 Create a logical index and use it select columns containing **mean,std,id**
 
 Step 5: Clean the column names
@@ -35,9 +35,9 @@ Step 5: Clean the column names
 The column names are not proper. Lets clean it up. 
 First store column names in a seperate variable and then use **search and replace** command to convert names into readable ones.
 
-Step 6: Modification and Summaris data:
+Step 6: Modification and Summarise data:
 ---
-First use dplyr commands to group data by **subject id**, **activiy_names**
+First use dplyr commands to group data by **subject id**, **activity_names**
 Then summarise the resultant data set. Now tidy data is ready.
 
 Step 7: Output tidy data
