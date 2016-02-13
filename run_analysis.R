@@ -56,7 +56,7 @@ metrics_trainData = inner_join(metrics_trainData,activityType, by = "Activity_id
 #Now store column names for cleaning
 datColNames = colnames(metrics_trainData)
 
-#Clean the column names 
+#Clean the column names and Replace with descriptive names
 for (i in 1: length(datColNames))
 {
   datColNames[i] =  gsub("\\()","", datColNames[i])
