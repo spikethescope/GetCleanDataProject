@@ -1,8 +1,9 @@
-# GetCleanDataProject
-Code Book
+# GetCleanDataProject Code Book
+
+
 Subject and Activity
 ---
-These variables identify the unique subject/activity pair the variables relate to:
+These are the variables relating to data collected from 30 respondents. These variables identify the unique subject/activity pair:
 
     **Subject**: the integer subject ID.
     **Activity**: the string activity name:
@@ -12,10 +13,11 @@ These variables identify the unique subject/activity pair the variables relate t
         Sitting
         Standing
         Laying
+The above are the activities of the respondents.
 
 Measurement Means
 ---
-All variables are the mean of a measurement for each subject and activity. This is indicated by the initial Mean in the variable name. All values are floating point numbers.
+All variables are the mean of a measurement for each subject and activity. This is indicated by the initial Mean in the variable name. All values are in double precision numbers.
 
     Time domain body acceleration mean along X, Y, and Z:
         MeanTimeBodyAccMeanX
