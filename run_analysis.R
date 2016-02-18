@@ -1,6 +1,4 @@
 # Run analysis file for Smartphone data from the web
-
-
 # Read in the training and test data
 #First clear the environment
 rm(list=ls())
@@ -11,32 +9,32 @@ library(dplyr)
 features     = read.table('./features.txt',header=FALSE); #imports features.txt
 activityType = read.table('./activity_labels.txt',header=FALSE); #imports activity_labels.txt
 subjectTrain = read.table('./train/subject_train.txt',header=FALSE); #imports subject_train.txt
-xTrain       = read.table('./train/x_train.txt',header=FALSE); #imports x_train.txt
-yTrain       = read.table('./train/y_train.txt',header=FALSE); #imports y_train.txt
+x_train       = read.table('./train/x_train.txt',header=FALSE); #imports x_train.txt
+y_train       = read.table('./train/y_train.txt',header=FALSE); #imports y_train.txt
 subjectTest  = read.table('./test/subject_test.txt',header=FALSE); #imports subject_test.txt
-xTest        = read.table('./test/x_test.txt', header = FALSE); #imports x_test data
-yTest        = read.table('./test/y_test.txt', header = FALSE); #imports 
+x_test        = read.table('./test/x_test.txt', header = FALSE); #imports x_test data
+y_test        = read.table('./test/y_test.txt', header = FALSE); #imports 
 
 #Now rename the columns for each data stored in training set
 colnames(features) = c('Signal_id', 'Domain_signal_type')
 colnames(activityType) = c('Activity_id', 'Activity_name')
 colnames(subjectTrain) = c('Subject_id')
-colnames(xTrain) = features[,"Domain_signal_type"]
-colnames(yTrain) = c('Activity_id')
+colnames(x_train) = features[,"Domain_signal_type"]
+colnames(y_train) = c('Activity_id')
 
 #Do this for test data as well.
 colnames(subjectTest) = c('Subject_id')
-colnames(xTest) = features[,"Domain_signal_type"]
-colnames(yTest) = c('Activity_id')
+colnames(x_test) = features[,"Domain_signal_type"]
+colnames(y_test) = c('Activity_id')
 
 #Now create a single data for training set by binding columns
-xTrain = cbind(xTrain, subjectTrain, yTrain)
+x_train = cbind(x_train, subjectTrain, y_train)
 
 #Now create a single data for test set by binding columns
-xTest  = cbind(xTest, subjectTest, yTest)
+x_test  = cbind(x_test, subjectTest, y_test)
 
 #Now combine both train and test set together
-combinData = rbind(xTrain, xTest)
+combinData = rbind(x_train, x_test)
 
 #Now create a tbldf for using dplyr commands
 trainData = tbl_df(combinData)
@@ -56,7 +54,7 @@ metrics_trainData = inner_join(metrics_trainData,activityType, by = "Activity_id
 #Now store column names for cleaning
 datColNames = colnames(metrics_trainData)
 
-#Clean the column names and Replace with descriptive names
+#Clean the column names 
 for (i in 1: length(datColNames))
 {
   datColNames[i] =  gsub("\\()","", datColNames[i])
